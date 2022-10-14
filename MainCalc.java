@@ -50,7 +50,7 @@ public class MainCalc {
 
     public static String calc(String input) throws Exception {
         boolean isRomanCalc = false;
-        String[] values = input.split("\\+|-\\*|/");
+        String[] values = input.split("[+\\-*/]");
         checkInputError(values);
         String oneNum = values[0];
         String twoNum = values[1];
@@ -65,7 +65,9 @@ public class MainCalc {
             throw new Exception("используются одновременно разные системы счисления");
         }
 
+        assert oneNum != null;
         int one = Integer.parseInt(oneNum);
+        assert twoNum != null;
         int two = Integer.parseInt(twoNum);
         int result = 0;
 
